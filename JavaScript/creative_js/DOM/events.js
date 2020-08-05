@@ -15,6 +15,6 @@ const mainTitle = document.querySelector('.main-title');
 //     todoNr.innerText = items.length;
 // });
 
-button.addEventListener('click', function () {
+button.addEventListener('mouseover', function () {
     mainTitle.classList.toggle('spectacular');
 });
