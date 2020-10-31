@@ -1,8 +1,25 @@
-.spectacular {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container {
+    width: 50%;
+    height: auto;
+}
+
+/* lottie-player {
+    width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+} */
+
+/* .spectacular {
     color: red;
     font-size: 50px;
 }
 
 .main-title {
     transition: all 0.5s ease;
-}
+} */
