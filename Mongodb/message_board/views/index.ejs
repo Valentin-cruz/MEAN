@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <div class="nav">
+            <h1>The Dojo Message Board</h1>
+        </div>
+        <div class="wall">
+            <% if(messages.messageform) { %>
+                <% for (var x of messages.messageform) { %>
+                    <div class="errorbox">
+                        <p class="alert alert-danger" role="alert"><%= x %></p>
+                    </div>
+                <% } %>
+            <% } %>
+            <% if(messages.commentform) { %>
+                <% for (var x of messages.commentform) { %>
+                    <div class="errorbox">
+                        <p class="alert alert-danger" role="alert"><%= x %></p>
+                    </div>
+                <% } %>
+            <% } %>
+            <form action="/message" method="post">
+                <h2>Name:</h2>
+                <input type="text" name="name">
+                <h2>Message:</h2>
+                <textarea class="msgbigbox" name="message"></textarea>
+                <input class="btn btn btn-success" type="submit" value="Post Message">
+            </form>
+            <div class="messagebox">
+                <% posts.forEach(function(message){ %>
+                    <h2>Name: <span class="msg"><%=message.name %></span></h2>
+                    <h2>Message: <span class="msg"><%=message.message %></span></h2>
+                    <div class="commentbox">
+                        <% for(var c = 0; c < message.comments.length; c++) { %>
+                            <h4>Name: <span class="cmt"><%=message.comments[c].name %></span></h4>
+                            <h4>Comment: <span class="cmt"><%=message.comments[c].comment %></span></h4>
+                            <br>
+                        <% } %>
+                        <form action="/comment" method="post">
+                            <h3>Name:</h3>
+                            <input type="text" name="name">
+                            <h3>Message:</h3>
+                            <textarea class="cmtbigbox" name="comment"></textarea>
+                            <input type="hidden" name="msgId" value="<%=message._id %>">
+                            <input class="btn btn btn-primary" type="submit" name="submit" value="Post Comment">
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

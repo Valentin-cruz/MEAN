@@ -1,0 +1,17 @@
+
+.container {
+    width: 900px;
+    height: 900px;
+    margin: auto;
+    text-align: center;
+    border: solid black;
+}
+h1 {
+    text-align: center;
+}
+img {
+    max-width: 275px;
+    max-height: 150px;
+    margin: .5rem 1.5rem;
+    border-radius: 7rem;
+}
