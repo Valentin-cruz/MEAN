@@ -20,3 +20,20 @@ console.log(names);
 //---------------------------
 
 const videos = ['hellow AudioWorkletNode', 'javascript']
+
+//SORT
+const items = ["banana", "Orange", "Apple", "Mango"];
+const rating = [92, 52, 4, 2, 22, 45.6, 10, 80];
+
+// rating.sort(funstion(a, b) {
+//     return a - b
+// });
+
+// console.log(rating);
+
+const name = 'dev';
+cont ;etters = name.split("");
+
+const otherNames = ["johns", "bohn", "jovi"];
+const allNames = [...otherNames, "this", "is", "ed"];
+console.log(allNames);
